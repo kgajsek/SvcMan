@@ -12,7 +12,7 @@ http://localhost:9500/serviceName/param1/param2/...
 
 When the first request for a particular service comes in, SvcMan will assign it a port (9600-9699) and start an executable with serviceName and its port and then forward that request to it. All further requests are just forwarded.
 
-Services should be placed in subfolders under SvcMan. Each service can have many versions, SvcMan will just execute the latest (ordered by directory name).
+Services should be placed in sub directories under SvcMan. Each service can have many versions, SvcMan will just execute the latest (ordered by directory name).
 
 Example:
 
@@ -46,8 +46,10 @@ http://localhost:9600/p1/p2
 
 Each service should expose the following endpoints, to be SvcMan compatible:
 
+```
 /echo - it should return "OK"
 /stop - it should stop the service (may complete any opened tasks, etc.)
+```
 
 and it must be compiled as executable and bind themselves to port given as first command line parameter.
 
